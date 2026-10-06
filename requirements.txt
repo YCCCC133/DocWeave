@@ -1,0 +1,9 @@
+mineru[torch]==4.0.10
+mineru-vl-utils==2.0.5
+mlx-vlm==0.7.4
+mlx==0.32.3
+transformers==5.18.0
+pypdfium2==5.13.0
+requests==2.34.2
+opencv-python==5.0.0.93
+numpy==2.4.6

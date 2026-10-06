@@ -1,0 +1,66 @@
+{
+  "model": "PaddleOCR-VL-1.6",
+  "source": "https://huggingface.co/PaddlePaddle/PaddleOCR-VL-1.6",
+  "revision": "c5630abae1d940eafe0697512a0325494b02ab42",
+  "runtime": {
+    "mlx-vlm": "0.7.4",
+    "mlx": "0.32.3",
+    "transformers": "5.18.0"
+  },
+  "execution": "local-only, MLX GPU batch up to 8; PP-DocLayout regions; OCR: mixed Chinese/math; Formula Recognition: standalone formula",
+  "files": {
+    "model.safetensors": {
+      "bytes": 1917255968
+    },
+    "added_tokens.json": {
+      "bytes": 25381
+    },
+    "tokenizer_config.json": {
+      "bytes": 186947
+    },
+    "special_tokens_map.json": {
+      "bytes": 1151
+    },
+    "config.json": {
+      "bytes": 2059
+    },
+    "tokenizer.json": {
+      "bytes": 11189060
+    },
+    "processor_config.json": {
+      "bytes": 137
+    },
+    "generation_config.json": {
+      "bytes": 133
+    },
+    "tokenizer.model": {
+      "bytes": 1614363
+    },
+    "chat_template.jinja": {
+      "bytes": 1474
+    },
+    "preprocessor_config.json": {
+      "bytes": 641
+    }
+  },
+  "app_build": "13",
+  "local_patches": [
+    "Paddle per-request position_ids and rope_deltas travel with visual embeddings",
+    "Strict single/batch length-stop rejection",
+    "GPU prefill4 rows / 512 tokens, decode up to8",
+    "Conservative printed-question geometry and marker recrop",
+    "Live completed-region/token progress",
+    "Independent saved-page and observed-stage progress bars; no timer-based percentage; scope-labelled logs",
+    "Complete-domain BF16 GELU lookup generated with original MLX operators; no interpolation or dtype/model/resolution changes; both modes verified across all 65536 BF16 bit patterns"
+  ],
+  "defaults": {
+    "ocr_mode": "ocr",
+    "tier": "advanced"
+  },
+  "precision_optimization": {
+    "algorithm": "full-domain exact BF16 activation lookup",
+    "model_weights": "unchanged BF16 checkpoint",
+    "scope": "27-layer vision MLP and vision-language projector",
+    "verification": "bitwise BF16 exhaustive, noncontiguous inputs, full MLP, original fallback for FP16/FP32"
+  }
+}
