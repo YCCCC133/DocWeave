@@ -1,4 +1,4 @@
-# MinerU 转换器 · macOS
+# DocWeave · 本地文档转换
 
 基于 MinerU 的本地 PDF 转换工具。Swift 原生界面管理转换队列，Python 后端提供文字识别、公式识别和 Markdown 输出。
 
